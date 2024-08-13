@@ -6,17 +6,19 @@ void Graph::addEdge(int v, int w)
     adj[w].push_back(v); // Note: the graph is undirected
 }
 
-void Graph::DFSUtil(int v, bool visited[])
+void Graph::DFSUtil(int v, bool visited[]) 
 {
-    // Mark the current node as visited and print it
+    std::cout << "Visiting vertex: " << v << std::endl; // Debugging output
     visited[v] = true;
 
-    // Recur for all the vertices adjacent to this vertex
     list<int>::iterator i;
-    for (i = adj[v].begin(); i != adj[v].end(); ++i)
-        if (!visited[*i])
+    for (i = adj[v].begin(); i != adj[v].end(); ++i) {
+        if (!visited[*i]) {
             DFSUtil(*i, visited);
+        }
+    }
 }
+
 
 // Method to check if all non-zero degree vertices are connected.
 // It mainly does DFS traversal starting from

@@ -11,12 +11,11 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-
 using namespace std;
 
 class Graph
 {
-    int vertices;          // No. of vertices
+    int vertices;   // No. of vertices
     list<int> *adj; // A dynamic array of adjacency lists
 public:
     // Constructor and destructor
