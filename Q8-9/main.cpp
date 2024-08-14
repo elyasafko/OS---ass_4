@@ -2,8 +2,8 @@
 #include <pthread.h>
 
 // Include the Singleton and Guard implementations
-#include "singleton.cpp"
-#include "guard.cpp"
+#include "singleton.hpp"
+#include "guard.hpp"
 
 int main()
 {

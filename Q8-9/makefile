@@ -1,19 +1,15 @@
-# Compiler
-CC = g++
+CC=g++
+CFLAGS=-Wall -pthread
+DEPS = singleton.hpp guard.hpp
+OBJ = main.o singleton.o guard.o
 
-# Compiler flags
-CFLAGS = -pthread -Wall -Wextra
+%.o: %.cpp $(DEPS)
+	$(CC) -c -o $@ $< $(CFLAGS)
 
-# Target executable
-TARGET = my_program
+main: $(OBJ)
+	$(CC) -o $@ $^ $(CFLAGS)
 
-# Source files
-SRCS = main.cpp singleton.cpp guard.cpp
-
-# Build target
-$(TARGET): $(SRCS)
-	$(CC) $(CFLAGS) -o $(TARGET) $(SRCS)
-
-# Clean target
 clean:
-	rm -f $(TARGET)
+	rm -f *.o main
+
+.PHONY: clean
